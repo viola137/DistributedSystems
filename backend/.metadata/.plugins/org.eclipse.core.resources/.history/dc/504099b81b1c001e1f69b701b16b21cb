@@ -1,0 +1,85 @@
+package com.esslingen.dsSystems.controller;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.distributedsystems.model.DistributedSystemsEntity;
+import com.example.distributedsystems.repository.DistributedSystemsRepository;
+
+import lombok.extern.slf4j.Slf4j;
+
+@RestController
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping(value = "/rest", produces = MediaType.APPLICATION_JSON_VALUE)
+@Validated
+@Slf4j
+public class DsSystemsController {
+
+	@Autowired
+	private DistributedSystemsRepository dsSystemRepository;
+
+	@GetMapping(path = "/pets/all")
+	public ResponseEntity<List<DistributedSystemsEntity>> getPets() {
+		log.info("Get all pets");
+		return ResponseEntity.ok(dsSystemRepository.findAll());
+	}
+	
+	@GetMapping(path = "/pets/{id}")
+	public ResponseEntity<Optional<DistributedSystemsEntity>> getPetById(@PathVariable("id") String id) {
+		log.info("Editing pet with id: {}", id);
+		dsSystemRepository.findById(id);
+		return ResponseEntity.ok(dsSystemRepository.findById(id));
+	}
+
+	@PostMapping(path = "/pets/filter")
+	public ResponseEntity<List<DistributedSystemsEntity>> getFilteredPets(@RequestBody DistributedSystemsEntity dsSystemEntity) {
+		log.info("Filtering pets: {}", dsSystemEntity);
+		Example<DistributedSystemsEntity> example = Example.of(dsSystemEntity);
+		return ResponseEntity.ok(dsSystemRepository.findAll(example));
+	}
+
+	@PostMapping(path = "/pets/add")
+	@Transactional
+	public ResponseEntity<DistributedSystemsEntity> addPet(@RequestBody DistributedSystemsEntity reqDsEntity) {
+		log.info("Saving pet: {}", reqDsEntity);
+		
+		return ResponseEntity.ok(dsSystemRepository.save(reqDsEntity));
+	}
+
+	@PutMapping(path = "/pets/edit")
+	@Transactional
+	public ResponseEntity<DistributedSystemsEntity> editPet(@RequestBody DistributedSystemsEntity reqDblabEntity) {
+		log.info("Editing pet: {}", reqDblabEntity);
+		return ResponseEntity.ok(dsSystemRepository.save(reqDblabEntity));
+	}
+
+
+	@DeleteMapping(path = "/pets/delete/{id}")
+	@Transactional
+	public void deletePet(@PathVariable String id) {
+		log.info("Deleting pet with id: {}", id);
+		dsSystemRepository.deleteById(id);
+	}
+
+	private String createUUId() {
+		return UUID.randomUUID().toString().substring(0, 36);
+	}
+}

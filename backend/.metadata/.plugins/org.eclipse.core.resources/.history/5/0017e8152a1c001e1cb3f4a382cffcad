@@ -1,0 +1,21 @@
+spring:
+    application:
+        name: distributedsystems
+    datasource:
+        url: jdbc:postgresql://localhost:5432/distributed_systems
+        driverClassName: org.postgresql.Driver
+        username: postgres
+        password: postgres
+    jpa:
+        show-sql: true
+        hibernate:
+            dialect: org.hibernate.dialect.PostgreSQLDialect
+            ddl-auto: none
+        database: postgresql
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        properties:
+            hibernate:
+                generate_statistics: true
+server:
+    port: 8080
+    address: localhost

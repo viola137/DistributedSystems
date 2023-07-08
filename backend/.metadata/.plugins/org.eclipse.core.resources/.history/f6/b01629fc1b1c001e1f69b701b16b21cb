@@ -1,0 +1,17 @@
+package com.esslingen.dsSystems.repository;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+import com.example.distributedsystems.model.DistributedSystemsEntity;
+
+public interface DistributedSystemsRepository extends JpaRepository<DistributedSystemsEntity, String> {
+
+	Optional<DistributedSystemsEntity> findByBreed(String breed);
+
+//	List<DistributedSystemsEntity> getFilteredPets(DistributedSystemsEntity dsSystemEntity);
+
+}

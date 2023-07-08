@@ -1,0 +1,6 @@
+/home/viscit00/eclipse-workspace/distSystems/backend/dsSystems/src/main/java/com/esslingen/dsSystems/model/DsSystemsEntity.java
+/home/viscit00/eclipse-workspace/distSystems/backend/dsSystems/src/main/java/com/esslingen/dsSystems/repository/DsSystemsRepository.java
+/home/viscit00/eclipse-workspace/distSystems/backend/dsSystems/src/main/java/com/esslingen/dsSystems/JpaConfiguration.java
+/home/viscit00/eclipse-workspace/distSystems/backend/dsSystems/src/main/java/com/esslingen/dsSystems/controller/DsSystemsController.java
+/home/viscit00/eclipse-workspace/distSystems/backend/dsSystems/src/main/java/com/esslingen/dsSystems/service/DsSystemsService.java
+/home/viscit00/eclipse-workspace/distSystems/backend/dsSystems/src/main/java/com/esslingen/dsSystems/DsSystemsApplication.java
