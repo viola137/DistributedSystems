@@ -6,7 +6,20 @@ Repository for the project of the lecture distributed systems. A small applicati
 
 ## Start through Docker
 
-Install docker on your machine. Then go to the directory that contains the docker-compose.yml file. Run the command:
+Before starting with docker open the backend in you IDE. In Eclipse select the root of your dirctory and go to **Run as**. There select the command **Maven clean** first to ensure that there are no jar-files under the target directory. After that select under **Run as** the command **Maven install**. That will provide you with the necessary jar-file to start the backend docker container.
+
+After that install docker on your machine if you have not already done so. To ckeck the version you are using you can simply run:
+
+```bash 
+$ docker -v
+```
+The output should look something like this when using Linux Ubuntu:
+
+```bash 
+$ Docker version 20.10.21, build 20.10.21-0ubuntu1~20.04.2
+```
+
+Then go to the directory that contains the docker-compose.yml file. Run the command:
 
 ```bash 
 $ docker-compose up --build
@@ -19,6 +32,10 @@ $ docker-compose down --volumes
 ```
 
 Otherwise a second attempt to start the project may fail.
+
+### Known Issues
+- communication problems between the database and the backend might occur -> a workaround is to start the backend locally through an IDE
+- so far docker-compose has only been tested on Windows and on Linux Ubuntu  
 
 ## Start through IDEs
 
