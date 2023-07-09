@@ -173,4 +173,4 @@ To get it, simply follow the instructions of the [Eclipse Foundation](https://ww
 
 ##### Lombok
 
-This application uses Lombok. In order to use Lombok [this](https://projectlombok.org/setup/eclipse) tool has to be installed.
+This application uses Lombok. In order to use Lombok [this  tool](https://projectlombok.org/setup/eclipse) has to be installed.
