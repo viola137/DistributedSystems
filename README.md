@@ -2,8 +2,37 @@
 
 ## General Information
  
-Repository for the project of the lecture distributed systems. A small application that displays a list of animals. The user is able to add, edit and delete animals. Furthermore it has a filter function to filter through the animals based on their species and their attributes. With the help of the search field one can search for a specific breed. 
+Repository for the project of the lecture distributed systems. A small application that displays a list of animals. The user is able to add, edit and delete animals. Even though it is out-of-scope for now it will have a filter function to filter through the animals based on their species and their attributes. With the help of the search field one will be able to search for a specific breed. 
 
+## Start through Docker
+
+Install docker on your machine. Then go to the directory that contains the docker-compose.yml file. Run the command:
+
+```bash 
+$ docker-compose up --build
+```
+
+After stoping the containers make sure to run the command:
+
+```bash 
+$ docker-compose down --volumes
+```
+
+Otherwise a second attempt to start the project may fail.
+
+## Start through IDEs
+
+### Backend in Eclipse
+
+Simply run the project as a Spring Boot project.
+
+### Frontend
+
+In a terminal go to the directory pet-project. There just enter the command:
+
+```bash 
+$ ng serve
+```
 
 ## Set up for development
 
@@ -133,11 +162,15 @@ OpenJDK 64-Bit Server VM (build 17.0.7+7-Ubuntu-0ubuntu120.04, mixed mode, shari
 The choice of an IDE is of course for the developer to make. So this part covers the personally preferred IDEs for a project like this.
 
 #### Visual Studio Code
- For the frontend the IDE Visual Studio Code was used.
+For the frontend the IDE Visual Studio Code was used.
  
- To get Visual Studio Code simply follow this [Link](https://code.visualstudio.com/Download) and choose the version for the operating system of the local machine used for this project.
+To get Visual Studio Code simply follow this [Link](https://code.visualstudio.com/Download) and choose the version for the operating system of the local machine used for this project.
 
 #### Eclipse
 For the backend the IDE Eclipse was used.
 
-To get it, simply follow the instructions of the [Eclipse Foundation](https://www.eclipse.org/downloads/packages/installerhttps://www.eclipse.org/downloads/packages/installer)   
+To get it, simply follow the instructions of the [Eclipse Foundation](https://www.eclipse.org/downloads/packages/installerhttps://www.eclipse.org/downloads/packages/installer) 
+
+##### Lombok
+
+This application uses Lombok. In order to use Lombok [this](https://projectlombok.org/setup/eclipse) tool has to be installed.
