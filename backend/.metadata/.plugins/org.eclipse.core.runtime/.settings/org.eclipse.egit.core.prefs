@@ -1,4 +1,5 @@
-GitRepositoriesView.GitDirectories=
-GitRepositoriesView.GitDirectories.relative=
+GitRepositoriesView.GitDirectories=/home/viscit00/eclipse-workspace/distSystems/.git\:
+GitRepositoriesView.GitDirectories.relative=/home/viscit00/eclipse-workspace/distSystems/.git\:
+RepositorySearchDialogSearchPath=/home/viscit00/eclipse-workspace/distSystems
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1
