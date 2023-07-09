@@ -12,21 +12,31 @@ services:
         depends_on:
             - db
         environment:
-            - POSTGRES_USERNAME=postgres
-            - POSTGRES_PASSWORD=postgres
-            - DATABASE_URL=jdbc:postgresql://db:5432/distributed_systems
-        volumes:
-            - postgres:/var/lib/postgresql/data
+            - DATABASE_USERNAME=postgres
+            - DATABASE_PASSWORD=postgres
+            - DATABASE_URL=jdbc:postgresql://localhost:5433/distributed_systems
+        networks:
+            - app-network
     db:
         container_name: dspgdb
-        image: postgres:15.3-alpine
+        #image: postgres:15.3-alpine
+        restart: on-failure
+        image: "tiere_db"
+        build:
+            context: ./ddl
+            dockerfile: Dockerfile
         environment:
             - POSTGRES_USERNAME=postgres
             - POSTGRES_PASSWORD=postgres
-            #- DATABASE_URL=jdbc:postgresql://localhost:5432/distributed_systems
             - POSTGRES_DB=distributed_systems
+            #- PG_DATA=/data/postgress-dbsystems
         volumes:
             - pgdata:/var/lib/postgresql/data
+            #- ./ddl/initdb.sql:/docker-entrypoint-initdb.d/initdb.sql
+        ports: 
+            - "5433:5432"
+        networks:
+            - app-network
     #frontend:
       #  container_name: dsfrontend
      #   image: frontend
@@ -41,5 +51,6 @@ services:
 volumes:
   pgdata:
   node_modules:
-  postgres:
-
+networks:
+  app-network:
+    driver: bridge
