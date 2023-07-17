@@ -6,7 +6,7 @@ Repository for the project of the lecture distributed systems. A small applicati
 
 ## Start through Docker
 
-Before starting with docker open the backend in you IDE. In Eclipse select the root of your dirctory and go to **Run as**. There select the command **Maven clean** first to ensure that there are no jar-files under the target directory. After that select under **Run as** the command **Maven install**. That will provide you with the necessary jar-file to start the backend docker container.
+Before starting with docker open the backend in your IDE. In Eclipse select the root of your dirctory and go to **Run as**. There select the command **Maven clean** first to ensure that there are no jar-files under the target directory. After that select under **Run as** the command **Maven install**. That will provide you with the necessary jar-file to start the backend docker container.
 
 After that install docker on your machine if you have not already done so. To ckeck the version you are using you can simply run:
 
@@ -31,7 +31,7 @@ After stoping the containers make sure to run the command:
 $ docker-compose down --volumes
 ```
 
-Otherwise a second attempt to start the project may fail.
+Otherwise a second attempt to start the project might fail.
 
 ### Known Issues
 - communication problems between the database and the backend might occur -> a workaround is to start the backend locally through an IDE
@@ -144,7 +144,7 @@ To install Java 17, first check if there is already a version installed.
 $ java -version
 ```
 
-If it is the output will look somewhat like this:
+If it is not installed the output will look somewhat like this:
 
 ```bash
 Command 'java' not found, but can be installed with:
@@ -190,4 +190,4 @@ To get it, simply follow the instructions of the [Eclipse Foundation](https://ww
 
 ##### Lombok
 
-This application uses Lombok. In order to use Lombok [this  tool](https://projectlombok.org/setup/eclipse) has to be installed.
+This application uses Lombok. In order to use Lombok in Eclipse [this  tool](https://projectlombok.org/setup/eclipse) has to be installed.
